@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState ,useEffect} from 'react'
 import BlogList from './BlogList'
 
 const Home = () => {
@@ -9,6 +9,14 @@ const [blog,setBlogs] = useState([
     { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
     { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
 ])
+
+const [name, setname] = useState("sonu")
+
+useEffect(() => {
+
+console.log("effect ran");
+
+},[name])
 
 const deleteHandler = (id) => {
 
@@ -23,7 +31,8 @@ const deleteHandler = (id) => {
              
            <BlogList blog={blog} title="All blogs"  deleteHandler={deleteHandler}/>
            {/* <BlogList blog={blog.filter((blog) => blog.author==="mario")}  title="Mario blogs"/>  */}
-
+    <button onClick={() => setname("shubham")}>check me</button>
+    <p>{name}</p>
         </div>
      );
 }            
